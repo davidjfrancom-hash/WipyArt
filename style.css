@@ -1,0 +1,479 @@
+:root {
+    --bg-dark: #07070a;
+    --bg-blue-glow: #0a1432;
+    --card-gray: #111116;
+    --border-white: rgba(255, 255, 255, 0.9);
+    --primary-red: #ff3355;
+    --primary-green: #00cc66;
+    --accent-yellow: #ffcc00;
+    --secondary-blue: #0066ff;
+    --text-white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'VT323', monospace;
+    background-color: #0d0d11; /* Fondo oscuro base */
+    
+    /* Configuración de los destellos */
+    background-image: 
+        radial-gradient(circle at 15% 25%, rgba(255, 64, 129, 0.22) 0%, transparent 55%),  /* Luz rosa */
+        radial-gradient(circle at 85% 75%, rgba(30, 144, 255, 0.22) 0%, transparent 60%), /* Luz azul */
+        radial-gradient(circle at center, #12121a 0%, #050507 100%); /* Centro */
+    
+    /* Hacemos el fondo un poco más grande para poder desplazarlo en la animación */
+    background-size: 140% 140%;
+    background-position: center;
+    
+    /* Activamos la animación: se llama 'lucesEnMovimiento', dura 12 segundos, es suave (ease) e infinita */
+    animation: lucesEnMovimiento 25s ease infinite;
+    
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   MOTOR DE ANIMACIÓN (Efecto de luces flotantes)
+   ========================================================================== */
+@keyframes lucesEnMovimiento {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.container {
+    width: 100%;
+    max-width: 760px;
+    padding: 15px;
+}
+
+.screen {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* PORTADA */
+.brand-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#main-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.main-title {
+    font-size: 5.5rem;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.question-text {
+    font-size: 2.2rem;
+    color: var(--accent-yellow);
+    margin-bottom: 30px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.feat-card {
+    /* ... resto de las propiedades ... */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro más opaco (70%) */
+    /* ... resto de las propiedades ... */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+/* Contornos tricolores requeridos para las tarjetas */
+.features-grid .feat-card:nth-child(1) { border: 2px solid var(--primary-green); }
+.features-grid .feat-card:nth-child(2) { border: 2px solid var(--accent-yellow); }
+.features-grid .feat-card:nth-child(3) { border: 2px solid var(--primary-red); }
+
+.feat-card .icon { font-size: 2rem; display: block; margin-bottom: 4px; }
+.feat-card h3 { font-size: 1.4rem; color: #fff; margin-bottom: 2px; }
+.feat-card p { font-size: 1.1rem; color: #888; }
+
+.action-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+/* BOTONES */
+.solid-btn {
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    border: 4px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: #ffd700;
+    color: #333;
+    box-shadow:
+    0 8px 0 #b8860b, /* Sombra inferior pixelada (marron dorado oscuro) */
+    0 12px 15px rgba(0,0,0,0,3);
+}
+
+
+.solid-btn {
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    border: 4px solid #fff; /* Borde blanco pixelado */
+    border-radius: 8px; /* Pequeño redondeo */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    
+    /* Nuevo estilo amarillo */
+    background-color: #ffd700; /* Color de fondo: amarillo oro */
+    color: #333; /* Texto oscuro para buen contraste */
+    box-shadow: 
+        0 8px 0 #b8860b, /* Sombra inferior pixelada (marrón dorado oscuro) */
+        0 12px 15px rgba(0,0,0,0.3); /* Sombra suave para profundidad */
+}
+
+.solid-btn:hover {
+    background-color: #22222b; 
+    color: #ffffff;
+    border: 4px solid #ffffff;
+    box-shadow: 
+        0 8px 0 #ffffff; /* Sombra inferior pixelada ajustada */
+    
+}
+
+.solid-btn:active {
+    transform: translateY(4px); /* Efecto de presionado hacia abajo */
+    box-shadow: 
+        0 2px 0 #b8860b, /* Sombra inferior pixelada casi invisible */
+        0 5px 8px rgba(0,0,0,0.2); /* Sombra suave ajustada */
+
+
+}
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.stat-group {
+    display: flex;
+    gap: 10px;
+}
+
+.stat-badge {
+    background-color: var(--card-gray);
+    padding: 4px 14px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+}
+.score-badge { border: 2px solid var(--accent-yellow); color: var(--accent-yellow); }
+.streak-badge { border: 2px solid var(--primary-red); color: var(--primary-red); }
+.question-counter { font-size: 1.6rem; color: #bbb; }
+
+.art-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.art-card {
+    background-color: var(--card-gray);
+    border: 2px solid var(--accent-yellow); 
+    border-radius: 16px;
+    padding: 14px;
+    width: 100%;
+    max-width: 460px;
+}
+
+.art-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.pixelated { filter: blur(20px) contrast(120%); }
+
+.art-meta {
+    margin-top: 10px;
+    text-align: center;
+    border-top: 2px solid #22222e;
+    padding-top: 8px;
+}
+.art-meta h3 { font-size: 1.7rem; color: white; }
+.art-meta p { font-size: 1.3rem; color: #aaa; }
+
+/* Tiempo */
+.timer-area {
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto 25px auto;
+}
+.timer-text { font-size: 1.8rem; color: var(--accent-yellow); margin-bottom: 4px; }
+.progress-bar-container { width: 100%; height: 12px; background-color: #161622; border-radius: 6px; overflow: hidden; border: 1px solid #333; }
+.progress-bar-fill { height: 100%; width: 100%; background-color: var(--primary-green); transition: width 0.1s linear; }
+
+/* Opciones con contorno blanco */
+.interactive-area {
+    width: 100%;
+    max-width: 580px;
+}
+
+.options-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-btn {
+    font-family: 'VT323', monospace;
+    background-color: var(--card-gray);
+    border: 2px solid var(--border-white);
+    color: var(--text-white);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 1.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.option-btn:hover { background-color: #191924; border-color: var(--accent-yellow); }
+
+.btn-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffcc00, #ff9900);
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.option-text-span { padding-top: 2px; }
+
+/* Feedback */
+.feedback-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 0;
+}
+.feedback-huge-icon { font-size: 4.5rem; margin-bottom: 5px; }
+.feedback-status-text { font-size: 3rem; font-weight: bold; }
+.feedback-sub-info { font-size: 1.6rem; margin-top: 4px; }
+
+.status-correct { color: var(--primary-green); }
+.status-incorrect { color: var(--primary-red); }
+
+/* PANTALLA FINAL */
+.trophy-icon { font-size: 5rem; color: var(--accent-yellow); margin-bottom: 5px; }
+.end-title { font-size: 3.5rem; margin-bottom: 25px; }
+
+.main-score-box {
+    background-color: var(--card-gray);
+    border: 2px solid var(--primary-green);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 440px;
+    padding: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.box-label { font-size: 1.4rem; color: #999; text-transform: uppercase; }
+.box-value { font-size: 5rem; color: var(--accent-yellow); }
+
+.stats-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.end-buttons-container .solid-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 2rem;
+    font-family: 'VT323', monospace;
+    background-color: #ffd700;
+    color: #333333;
+    border: 4px solid #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #b8860b;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+#game-screen img, 
+.image-container img, 
+#game-image {
+    width: 100%;
+    height: 100%;
+    max-height: 400px; /* Evita que se estiren de más hacia arriba */
+    object-fit: contain !important; /* Forza a la imagen a centrarse sin hacer zoom raro */
+    background-color: #050508; /* Le pone un fondo oscuro a los lados si la imagen es delgada */
+}
+
+/* Le da un resplandor de luz neón al logo */
+.logo-container img, 
+[alt*="logo"] {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4)) 
+            drop-shadow(0 0 20px rgba(0, 191, 255, 0.3));
+    animation: flotarLogo 4s ease-in-out infinite; /* Añade un extra de movimiento */
+}
+
+/* Apunta directamente a la imagen dentro del contenedor superior o a cualquier imagen de logo */
+header img, 
+.logo-container img, 
+.logo img, 
+[alt*="logo"] {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.35)) 
+            drop-shadow(0 0 20px rgba(0, 191, 255, 0.25));
+    
+    /* Forzamos la animación con !important para asegurar que el navegador la lea */
+    animation: flotarLogo 4s ease-in-out infinite !important;
+    display: inline-block;
+}
+
+/* Animamos directamente la sección principal del inicio */
+.home-screen, 
+.container, 
+main,
+header {
+    animation: flotarTodo 5s ease-in-out infinite !important;
+}
+
+/* El motor de movimiento ultra suave */
+@keyframes flotarTodo {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px); /* Sube un poquito */
+    }
+    100% {
+        transform: translateY(0px); /* Vuelve a bajar */
+    }
+}
+
+/* Esto le da un boost de brillo a los colores del logo */
+img[src*="logo"], 
+header img {
+    filter: brightness(1.2) drop-shadow(0 0 15px rgba(0, 191, 255, 0.35)) !important;
+}
+
+.feat-card.green {
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.2), 
+                inset 0 0 10px rgba(0, 255, 204, 0.05);
+}
+
+/* 2. Tarjeta Amarilla (Segundos) */
+.feat-card.yellow {
+    box-shadow: 0 0 15px rgba(255, 235, 59, 0.2), 
+                inset 0 0 10px rgba(255, 235, 59, 0.05);
+}
+
+/* 3. Tarjeta Rosada (Rachas) */
+.feat-card.pink {
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.2), 
+                inset 0 0 10px rgba(255, 64, 129, 0.05);
+}
+
+/* 4. Cuadro de Puntuación Final (Pantalla de Juego Terminado) */
+.score-container, 
+.results-box,
+[class*="puntuacion"] {
+    box-shadow: 0 0 20px rgba(255, 235, 59, 0.15);
+    border: 2px solid #ffeb3b !important; /* Asegura un borde fino amarillo brillante */
+}
+
+/* ==========================================================================
+   SOLUCIÓN INFALIBLE: Brillo para todos los cuadros del menú
+   ========================================================================== */
+
+/* Buscamos cualquier caja, tarjeta o contenedor de texto en el inicio y final */
+.feat-card, 
+[class*="card"], 
+[class*="box"], 
+[class*="container"] {
+    /* Crea un resplandor blanco/azul sutil hacia afuera */
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.12), 
+                0 0 30px rgba(0, 191, 255, 0.1) !important;
+    
+    /* Le da un toque brillante al fondo del cuadro */
+    background-color: rgba(20, 20, 27, 0.65) !important; 
+    
+    /* Asegura que el texto esté perfectamente centrado por si acaso */
+    text-align: center !important;
+}
+
+/* Fuerza el brillo específico si encuentra los bordes de color */
+[style*="border-color: green"], [class*="green"] { box-shadow: 0 0 20px rgba(0, 255, 204, 0.3) !important; }
+[style*="border-color: yellow"], [class*="yellow"] { box-shadow: 0 0 20px rgba(255, 235, 59, 0.3) !important; }
+[style*="border-color: pink"], [class*="pink"], [class*="red"] { box-shadow: 0 0 20px rgba(255, 64, 129, 0.3) !important; }
