@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WipyArt - Quiz Game</title>
+    <link rel="icon" type="image/png" href="./assets/logo.png.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <div id="start-screen" class="screen">
+            <div class="brand-header">
+                <img src="./assets/logo.png.png" id="main-logo" alt="WipyArt Logo">
+                <h1 class="main-title">WipyArt</h1>
+            </div>
+            <p class="question-text">¿PUEDES ADIVINAR LA OBRA?</p>
+
+            <div class="features-grid">
+                <div class="feat-card">
+                    <span class="icon">⚡</span>
+                    <h3>4 Obras Maestras</h3>
+                    <p>Pinturas icónicas</p>
+                </div>
+                <div class="feat-card">
+                    <span class="icon">⏱️</span>
+                    <h3>15 Segundos</h3>
+                    <p>Por cada obra</p>
+                </div>
+                <div class="feat-card">
+                    <span class="icon">🔥</span>
+                    <h3>Rachas x Bonus</h3>
+                    <p>Suma más puntos</p>
+                </div>
+            </div>
+
+            <div class="action-area">
+                <button id="start-btn" class="solid-btn btn-blue">▶ ¡EMPEZAR!</button>
+            </div>
+        </div>
+
+        <!-- PANTALLA INTERMEDIA: SELECCIÓN DE CATEGORÍAS -->
+<div id="category-screen" class="screen hidden">
+    <h2 class="game-subtitle">SELECCIONA TU DESAFÍO</h2>
+    <p class="game-subprompt">Cada categoría tiene 5 obras únicas</p>
+    
+<div class="categories-grid">
+        <button class="btn-category green-border" data-cat="clasico">🏛️ ARTE CLÁSICO</button>
+        <button class="btn-category pink-border" data-cat="moderno">🎨 ARTE MODERNO</button>
+        <button class="btn-category blue-border" data-cat="urbano">🖌️ MURALISMO Y URBANO</button>
+        <button class="btn-category yellow-border" data-cat="aleatorio">🎲 MODO ALEATORIO</button>
+    </div>
+</div>
+
+        <div id="quiz-screen" class="screen hidden">
+            <div class="top-bar">
+                <div class="stat-group">
+                    <div class="stat-badge score-badge">🏆 <span id="score">0</span></div>
+                    <div id="streak-badge" class="stat-badge streak-badge hidden">🔥 <span id="streak-count">1</span>x</div>
+                </div>
+                <div class="question-counter">Obra <span id="current-idx">1</span>/4</div>
+            </div>
+
+            <div class="art-container">
+                <div class="art-card">
+                    <img id="art-image" class="pixelated" src="" alt="Arte">
+                    <div id="art-meta" class="art-meta hidden">
+                        <h3 id="meta-title">Nombre de la obra</h3>
+                        <p id="meta-author">Autor • Año</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timer-area">
+                <div class="timer-text">⏱️ <span id="timer">15</span>s</div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="interactive-area">
+                <div id="options-container" class="options-stack"></div>
+
+                <div id="feedback-container" class="feedback-layout hidden">
+                    <div id="feedback-icon" class="feedback-huge-icon">⭐</div>
+                    <h2 id="feedback-status" class="feedback-status-text">¡CORRECTO!</h2>
+                    <p id="feedback-subtext" class="feedback-sub-info"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="end-screen" class="screen hidden">
+            <div class="trophy-icon">🏆</div>
+            <h1 class="end-title">¡JUEGO TERMINADO!</h1>
+
+            <div class="main-score-box">
+                <p class="box-label">Puntuación Final</p>
+                <h2 id="final-score" class="box-value">0</h2>
+            </div>
+
+            <div class="stats-row">
+                <div class="sub-stat-box">
+                    <p class="box-label">Correctas</p>
+                    <h3 id="final-correct" class="box-value-small color-yellow">0/4</h3>
+                </div>
+                <div class="sub-stat-box">
+                    <p class="box-label">Precisión</p>
+                    <h3 id="final-precision" class="box-value-small color-blue">0%</h3>
+                </div>
+            </div>
+
+            <div class="end-buttons-container">
+                <button id="restart-btn" class="solid-btn btn-blue">🔄 JUGAR DE NUEVO</button>
+                <button id="home-btn" class="solid-btn btn-dark">🏠 INICIO</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
