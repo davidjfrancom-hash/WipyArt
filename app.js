@@ -1,29 +1,106 @@
-const questions = [
-    {
-        image: "assets/17.jpg.jpg", 
-        options: ["LA NOCHE ESTRELLADA", "EL GRITO", "NOCHE Y DIA", "CIELO ESTRELLADO"],
-        correct: "LA NOCHE ESTRELLADA",
-        author: "Vincent van Gogh • 1889"
-    },
-    {
-        image: "assets/18.jpg.jpg",
-        options: ["LAS MENINAS", "EL GRITO", "GUERNICA", "DEVASTACION"],
-        correct: "GUERNICA",
-        author: "Pablo Picasso • 1937"
-    },
-    {
-        image: "assets/monalisa.jpg.jpg",
-        options: ["LA MONA LISA", "LA JOVEN DE LA PERLA", "RETRATO FEMENINO", "LA ULTIMA CENA"],
-        correct: "LA MONA LISA",
-        author: "Leonardo da Vinci • 1503-1519"
-    },
-    {
-        image: "assets/19.jpg.jpg",
-        options: ["MURAL URBANO", "GRAFITI INSU", "MANOS DEL ARTE", "STREET ART MARACAY"],
-        correct: "GRAFITI INSU",
-        author: "Insu • Arte Urbano"
-    }
-];
+// 1. ORGANIZAMOS EL BANCO DE PREGUNTAS POR CATEGORÍAS (Se agregaron las obras de tu documento)
+const bancoCategorias = {
+
+    clasico: [
+        {
+            image: "assets/monalisa.jpg.jpg", // Tu ruta original
+            options: ["LA MONA LISA", "LA JOVEN DE LA PERLA", "RETRATO FEMENINO", "LA ULTIMA CENA"],
+            correct: "LA MONA LISA",
+            author: "Leonardo da Vinci • 1503-1519"
+        },
+        {
+            image: "assets/17.jpg.jpg", // Tu ruta original
+            options: ["LA NOCHE ESTRELLADA", "EL GRITO", "NOCHE Y DIA", "CIELO ESTRELLADO"],
+            correct: "LA NOCHE ESTRELLADA",
+            author: "Vincent van Gogh • 1889"
+        },
+        {
+            image: "assets/la ultima cena.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["LA ULTIMA CENA", "EL LAVATORIO", "LA TRINIDAD", "LAS BODAS DE CANÁ"],
+            correct: "LA ULTIMA CENA",
+            author: "Leonardo da Vinci • 1495-1498"
+        },
+        {
+            image: "assets/la creacion de adan.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["EL JUICIO FINAL", "LA CREACION DE ADAN", "EL BUEN PASTOR", "EL MOISÉS"],
+            correct: "LA CREACION DE ADAN",
+            author: "Miguel Ángel • 1511"
+        },
+        {
+            image: "assets/el grito de munch.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["EL GRITO", "LA TORMENTA", "ANSIEDAD", "ATARDECER ROJO"],
+            correct: "EL GRITO",
+            author: "Edvard Munch • 1893"
+        }
+    ],
+ moderno: [
+        {
+            image: "assets/guernica.jpg.jpg", // Tu ruta original de Guernica
+            options: ["LAS MENINAS", "EL GRITO", "GUERNICA", "DEVASTACION"],
+            correct: "GUERNICA",
+            author: "Pablo Picasso • 1937"
+        },
+        {
+            image: "assets/la persistencia de la memoria.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["RELOJES BLANDOS", "LA PERSISTENCIA DE LA MEMORIA", "EL SUEÑO", "PAISAJE SURREALISTA"],
+            correct: "LA PERSISTENCIA DE LA MEMORIA",
+            author: "Salvador Dalí • 1931"
+        },
+        {
+            image: "assets/las señoritas de avignon.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["LAS SEÑORITAS DE AVIGNON", "DESNUDOS CUBISTAS", "MUJERES DE ARGEL", "LA DANZA"],
+            correct: "LAS SEÑORITAS DE AVIGNON",
+            author: "Pablo Picasso • 1907"
+        },
+        {
+            image: "assets/diptico de marilyn.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["SOPA CAMPBELL", "MARILYN REPETIDA", "DIPTICO DE MARILYN", "ARTE POP POP"],
+            correct: "DIPTICO DE MARILYN",
+            author: "Andy Warhol • 1962"
+        },
+        {
+            image: "assets/composicion en rojo, azul y amarillo.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["LÍNEAS Y COLORES", "COMPOSICION EN ROJO AZUL Y AMARILLO", "CUADRANTE RECTANGULAR", "ABSTRACCION GEOMETRICA"],
+            correct: "COMPOSICION EN ROJO AZUL Y AMARILLO",
+            author: "Piet Mondrian • 1930"
+        }
+    ],
+urbano: [
+        {
+            image: "assets/el hombre en el cruce de caminos.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["EL HOMBRE CONTROLADOR DEL UNIVERSO", "SUEÑO DE UNA TARDE DOMINICAL", "LA MARCHA DE LA HUMANIDAD", "EL HOMBRE EN EL CRUCE DE CAMINOS"],
+            correct: "EL HOMBRE EN EL CRUCE DE CAMINOS",
+            author: "Diego Rivera • 1934"
+        },
+        {
+            image: "assets/del porfirismo a la revolucion.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["DEL PORFIRISMO A LA REVOLUCION", "NUEVA DEMOCRACIA", "LOS ELEMENTOS", "EPICEYA"],
+            correct: "DEL PORFIRISMO A LA REVOLUCION",
+            author: "David Alfaro Siqueiros • 1957-1966"
+        },
+        {
+            image: "assets/crack is wack.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["MURAL DE FILADELFIA", "CRACK IS WACK", "DANCE FOR LIFE", "ICONOS URBANOS"],
+            correct: "CRACK IS WACK",
+            author: "Keith Haring • 1986"
+        },
+        {
+            image: "assets/el lanzador de flores.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["EL LANZADOR DE FLORES", "AMOR EN EL AIRE", "GRAFITI DE LA PAZ", "MANIFESTANTE URBANO"],
+            correct: "EL LANZADOR DE FLORES",
+            author: "Banksy • 2003"
+        },
+        {
+            image: "assets/etnias.jpg.jpg", // Asegúrate de poner el nombre exacto de tu JPG
+            options: ["TODOS SOMOS UNO", "ETNIAS", "ROSTROS DEL MUNDO", "CULTURAS NATIVAS"],
+            correct: "ETNIAS",
+            author: "Eduardo Kobra • 2016"
+        }
+    ]
+};
+
+// Bandeja temporal que guardará las 5 preguntas activas de la sesión
+let questions = []; 
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -32,7 +109,9 @@ let streak = 0;
 let timeLeft = 15; 
 let timerInterval;
 
+// Elementos del DOM (Agregamos la nueva pantalla intermedia)
 const startScreen = document.getElementById("start-screen");
+const categoryScreen = document.getElementById("category-screen");
 const quizScreen = document.getElementById("quiz-screen");
 const endScreen = document.getElementById("end-screen");
 
@@ -50,14 +129,55 @@ const currentIdxDisplay = document.getElementById("current-idx");
 const streakBadge = document.getElementById("streak-badge");
 const streakCount = document.getElementById("streak-count");
 
-document.getElementById("start-btn").addEventListener("click", startGame);
+// EVENTOS DE NAVEGACIÓN
+document.getElementById("start-btn").addEventListener("click", goToCategories);
 document.getElementById("restart-btn").addEventListener("click", restartGame);
 document.getElementById("home-btn").addEventListener("click", goToHome);
 
-function startGame() {
+// Paso 1: Al dar "Empezar", va al menú de categorías
+function goToCategories() {
     startScreen.classList.add("hidden");
+    categoryScreen.classList.remove("hidden");
+}
+
+// Paso 2: Escucha los botones de categoría, prepara el mazo de preguntas e inicia
+document.querySelectorAll('.btn-category').forEach(boton => {
+    boton.addEventListener('click', (e) => {
+        // Encontrar el atributo data-cat (clasico, moderno, urbano, aleatorio)
+        const categoriaSeleccionada = e.currentTarget.getAttribute('data-cat');
+        
+        prepararPreguntasDePartida(categoriaSeleccionada);
+        
+        categoryScreen.classList.add("hidden");
+        quizScreen.classList.remove("hidden");
+        
+        startGame();
+    });
+});
+
+// Función Inteligente: Genera el mazo de preguntas según la elección
+function prepararPreguntasDePartida(categoria) {
+    if (categoria === 'aleatorio') {
+        // Juntamos absolutamente todas las obras de los tres grupos
+        let todasLasObras = [
+            ...bancoCategorias.clasico,
+            ...bancoCategorias.moderno,
+            ...bancoCategorias.urbano
+        ];
+        
+        // Algoritmo de barajado aleatorio rápido
+        todasLasObras.sort(() => Math.random() - 0.5);
+        
+        // Extrae un máximo de 5 obras combinadas para la partida
+        questions = todasLasObras.slice(0, 5);
+    } else {
+        // Si es una fija, clona el arreglo correspondiente
+        questions = [...bancoCategorias[categoria]];
+    }
+}
+
+function startGame() {
     endScreen.classList.add("hidden");
-    quizScreen.classList.remove("hidden");
     
     currentQuestionIndex = 0;
     score = 0;
@@ -82,6 +202,7 @@ function loadQuestion() {
     progressBar.style.backgroundColor = "var(--primary-green)";
     currentIdxDisplay.textContent = currentQuestionIndex + 1;
 
+    // Aquí lee dinámicamente de la bandeja temporal 'questions'
     let q = questions[currentQuestionIndex];
     artImage.src = q.image;
 
@@ -212,11 +333,14 @@ function showEndScreen() {
 }
 
 function restartGame() {
-    startGame();
+    // Al reiniciar, lo devuelve a categorías para que vuelva a escoger modo
+    endScreen.classList.add("hidden");
+    categoryScreen.classList.remove("hidden");
 }
 
 function goToHome() {
     endScreen.classList.add("hidden");
     quizScreen.classList.add("hidden");
+    categoryScreen.classList.add("hidden"); // Asegura ocultar categorías
     startScreen.classList.remove("hidden");
 }

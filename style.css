@@ -20,19 +20,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'VT323', monospace;
-    background-color: #0d0d11; /* Fondo oscuro base */
+    background-color: #0d0d11; 
     
-    /* Configuración de los destellos */
     background-image: 
-        radial-gradient(circle at 15% 25%, rgba(255, 64, 129, 0.22) 0%, transparent 55%),  /* Luz rosa */
-        radial-gradient(circle at 85% 75%, rgba(30, 144, 255, 0.22) 0%, transparent 60%), /* Luz azul */
-        radial-gradient(circle at center, #12121a 0%, #050507 100%); /* Centro */
+        radial-gradient(circle at 15% 25%, rgba(255, 64, 129, 0.22) 0%, transparent 55%),  
+        radial-gradient(circle at 85% 75%, rgba(30, 144, 255, 0.22) 0%, transparent 60%), 
+        radial-gradient(circle at center, #12121a 0%, #050507 100%); 
     
-    /* Hacemos el fondo un poco más grande para poder desplazarlo en la animación */
     background-size: 140% 140%;
     background-position: center;
     
-    /* Activamos la animación: se llama 'lucesEnMovimiento', dura 12 segundos, es suave (ease) e infinita */
     animation: lucesEnMovimiento 25s ease infinite;
     
     color: #ffffff;
@@ -43,9 +40,6 @@ body {
     overflow: hidden;
 }
 
-/* ==========================================================================
-   MOTOR DE ANIMACIÓN (Efecto de luces flotantes)
-   ========================================================================== */
 @keyframes lucesEnMovimiento {
     0% {
         background-position: 0% 50%;
@@ -112,9 +106,8 @@ body {
 }
 
 .feat-card {
-    /* ... resto de las propiedades ... */
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro más opaco (70%) */
-    /* ... resto de las propiedades ... */
+    background-color: rgba(0, 0, 0, 0.7); 
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -122,7 +115,7 @@ body {
     text-align: center;
 
 }
-/* Contornos tricolores requeridos para las tarjetas */
+
 .features-grid .feat-card:nth-child(1) { border: 2px solid var(--primary-green); }
 .features-grid .feat-card:nth-child(2) { border: 2px solid var(--accent-yellow); }
 .features-grid .feat-card:nth-child(3) { border: 2px solid var(--primary-red); }
@@ -156,7 +149,7 @@ body {
     background-color: #ffd700;
     color: #333;
     box-shadow:
-    0 8px 0 #b8860b, /* Sombra inferior pixelada (marron dorado oscuro) */
+    0 8px 0 #b8860b, 
     0 12px 15px rgba(0,0,0,0,3);
 }
 
@@ -165,8 +158,8 @@ body {
     font-family: 'VT323', monospace;
     font-size: 2rem;
     padding: 1rem 3rem;
-    border: 4px solid #fff; /* Borde blanco pixelado */
-    border-radius: 8px; /* Pequeño redondeo */
+    border: 4px solid #fff; 
+    border-radius: 8px; 
     cursor: pointer;
     transition: all 0.2s ease;
     text-transform: uppercase;
@@ -174,12 +167,11 @@ body {
     align-items: center;
     gap: 1rem;
     
-    /* Nuevo estilo amarillo */
-    background-color: #ffd700; /* Color de fondo: amarillo oro */
-    color: #333; /* Texto oscuro para buen contraste */
+    background-color: #ffd700; 
+    color: #333; 
     box-shadow: 
-        0 8px 0 #b8860b, /* Sombra inferior pixelada (marrón dorado oscuro) */
-        0 12px 15px rgba(0,0,0,0.3); /* Sombra suave para profundidad */
+        0 8px 0 #b8860b,
+        0 12px 15px rgba(0,0,0,0.3); 
 }
 
 .solid-btn:hover {
@@ -187,15 +179,15 @@ body {
     color: #ffffff;
     border: 4px solid #ffffff;
     box-shadow: 
-        0 8px 0 #ffffff; /* Sombra inferior pixelada ajustada */
+        0 8px 0 #ffffff; 
     
 }
 
 .solid-btn:active {
-    transform: translateY(4px); /* Efecto de presionado hacia abajo */
+    transform: translateY(4px); 
     box-shadow: 
-        0 2px 0 #b8860b, /* Sombra inferior pixelada casi invisible */
-        0 5px 8px rgba(0,0,0,0.2); /* Sombra suave ajustada */
+        0 2px 0 #b8860b,
+        0 5px 8px rgba(0,0,0,0.2); 
 
 
 }
@@ -258,7 +250,6 @@ body {
 .art-meta h3 { font-size: 1.7rem; color: white; }
 .art-meta p { font-size: 1.3rem; color: #aaa; }
 
-/* Tiempo */
 .timer-area {
     width: 100%;
     max-width: 580px;
@@ -268,7 +259,6 @@ body {
 .progress-bar-container { width: 100%; height: 12px; background-color: #161622; border-radius: 6px; overflow: hidden; border: 1px solid #333; }
 .progress-bar-fill { height: 100%; width: 100%; background-color: var(--primary-green); transition: width 0.1s linear; }
 
-/* Opciones con contorno blanco */
 .interactive-area {
     width: 100%;
     max-width: 580px;
@@ -312,7 +302,6 @@ body {
 
 .option-text-span { padding-top: 2px; }
 
-/* Feedback */
 .feedback-layout {
     display: flex;
     flex-direction: column;
@@ -375,20 +364,18 @@ body {
 #game-image {
     width: 100%;
     height: 100%;
-    max-height: 400px; /* Evita que se estiren de más hacia arriba */
-    object-fit: contain !important; /* Forza a la imagen a centrarse sin hacer zoom raro */
-    background-color: #050508; /* Le pone un fondo oscuro a los lados si la imagen es delgada */
+    max-height: 400px; 
+    object-fit: contain !important; 
+    background-color: #050508; 
 }
 
-/* Le da un resplandor de luz neón al logo */
 .logo-container img, 
 [alt*="logo"] {
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4)) 
             drop-shadow(0 0 20px rgba(0, 191, 255, 0.3));
-    animation: flotarLogo 4s ease-in-out infinite; /* Añade un extra de movimiento */
+    animation: flotarLogo 4s ease-in-out infinite; 
 }
 
-/* Apunta directamente a la imagen dentro del contenedor superior o a cualquier imagen de logo */
 header img, 
 .logo-container img, 
 .logo img, 
@@ -396,12 +383,11 @@ header img,
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.35)) 
             drop-shadow(0 0 20px rgba(0, 191, 255, 0.25));
     
-    /* Forzamos la animación con !important para asegurar que el navegador la lea */
+    
     animation: flotarLogo 4s ease-in-out infinite !important;
     display: inline-block;
 }
 
-/* Animamos directamente la sección principal del inicio */
 .home-screen, 
 .container, 
 main,
@@ -409,20 +395,18 @@ header {
     animation: flotarTodo 5s ease-in-out infinite !important;
 }
 
-/* El motor de movimiento ultra suave */
 @keyframes flotarTodo {
     0% {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-8px); /* Sube un poquito */
+        transform: translateY(-8px); 
     }
     100% {
-        transform: translateY(0px); /* Vuelve a bajar */
+        transform: translateY(0px); 
     }
 }
 
-/* Esto le da un boost de brillo a los colores del logo */
 img[src*="logo"], 
 header img {
     filter: brightness(1.2) drop-shadow(0 0 15px rgba(0, 191, 255, 0.35)) !important;
@@ -433,47 +417,70 @@ header img {
                 inset 0 0 10px rgba(0, 255, 204, 0.05);
 }
 
-/* 2. Tarjeta Amarilla (Segundos) */
 .feat-card.yellow {
     box-shadow: 0 0 15px rgba(255, 235, 59, 0.2), 
                 inset 0 0 10px rgba(255, 235, 59, 0.05);
 }
 
-/* 3. Tarjeta Rosada (Rachas) */
 .feat-card.pink {
     box-shadow: 0 0 15px rgba(255, 64, 129, 0.2), 
                 inset 0 0 10px rgba(255, 64, 129, 0.05);
 }
 
-/* 4. Cuadro de Puntuación Final (Pantalla de Juego Terminado) */
 .score-container, 
 .results-box,
 [class*="puntuacion"] {
     box-shadow: 0 0 20px rgba(255, 235, 59, 0.15);
-    border: 2px solid #ffeb3b !important; /* Asegura un borde fino amarillo brillante */
+    border: 2px solid #ffeb3b !important; 
 }
 
-/* ==========================================================================
-   SOLUCIÓN INFALIBLE: Brillo para todos los cuadros del menú
-   ========================================================================== */
-
-/* Buscamos cualquier caja, tarjeta o contenedor de texto en el inicio y final */
 .feat-card, 
 [class*="card"], 
 [class*="box"], 
 [class*="container"] {
-    /* Crea un resplandor blanco/azul sutil hacia afuera */
+    
     box-shadow: 0 0 18px rgba(255, 255, 255, 0.12), 
                 0 0 30px rgba(0, 191, 255, 0.1) !important;
     
-    /* Le da un toque brillante al fondo del cuadro */
+   
     background-color: rgba(20, 20, 27, 0.65) !important; 
     
-    /* Asegura que el texto esté perfectamente centrado por si acaso */
+
     text-align: center !important;
 }
 
-/* Fuerza el brillo específico si encuentra los bordes de color */
 [style*="border-color: green"], [class*="green"] { box-shadow: 0 0 20px rgba(0, 255, 204, 0.3) !important; }
 [style*="border-color: yellow"], [class*="yellow"] { box-shadow: 0 0 20px rgba(255, 235, 59, 0.3) !important; }
 [style*="border-color: pink"], [class*="pink"], [class*="red"] { box-shadow: 0 0 20px rgba(255, 64, 129, 0.3) !important; }
+
+/* PANTALLA DE CATEGORÍAS */
+.categories-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.btn-category {
+    background: rgba(20, 20, 27, 0.65) !important;
+    color: white;
+    padding: 18px;
+    font-family: 'VT323', monospace;
+    font-size: 1.6rem;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.btn-category:hover {
+    transform: scale(1.03);
+}
+
+/* Luces traseras específicas para cada botón de categoría */
+.green-border { border: 1px solid #00ffcc; box-shadow: 0 0 15px rgba(0, 255, 204, 0.2) !important; }
+.pink-border { border: 1px solid #ff4081; box-shadow: 0 0 15px rgba(255, 64, 129, 0.2) !important; }
+.blue-border { border: 1px solid #1e90ff; box-shadow: 0 0 15px rgba(30, 144, 255, 0.2) !important; }
+.yellow-border { border: 1px solid #ffeb3b; box-shadow: 0 0 15px rgba(255, 235, 59, 0.2) !important; }
