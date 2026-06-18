@@ -99,14 +99,14 @@ urbano: [
     ]
 };
 
-// Bandeja temporal que guardará las 5 preguntas activas de la sesión
+
 let questions = []; 
 
 let currentQuestionIndex = 0;
 let score = 0;
 let correctAnswersCount = 0;
 let streak = 0;
-let timeLeft = 15; 
+let timeLeft = 10; 
 let timerInterval;
 
 // Elementos del DOM (Agregamos la nueva pantalla intermedia)
@@ -169,7 +169,7 @@ function prepararPreguntasDePartida(categoria) {
         todasLasObras.sort(() => Math.random() - 0.5);
         
         // Extrae un máximo de 5 obras combinadas para la partida
-        questions = todasLasObras.slice(0, 5);
+        questions = todasLasObras.slice(0, 15);
     } else {
         // Si es una fija, clona el arreglo correspondiente
         questions = [...bancoCategorias[categoria]];
@@ -196,7 +196,13 @@ function loadQuestion() {
     artMeta.classList.add("hidden");
     artImage.classList.add("pixelated");
     
-    timeLeft = 15;
+    timeLeft = 10;
+
+const totalDisplay = document.getElementById("total-idx");
+if (totalDisplay) {
+    totalDisplay.textContent = questions.length;
+}
+
     timerDisplay.textContent = timeLeft;
     progressBar.style.width = "100%";
     progressBar.style.backgroundColor = "var(--primary-green)";
@@ -225,7 +231,7 @@ function updateTimer() {
     if (timeLeft < 0) timeLeft = 0;
     
     timerDisplay.textContent = Math.ceil(timeLeft);
-    const percentage = (timeLeft / 15) * 100;
+    const percentage = (timeLeft / 10) * 100;
     progressBar.style.width = `${percentage}%`;
 
     if (timeLeft > 7) {

@@ -484,3 +484,50 @@ header img {
 .pink-border { border: 1px solid #ff4081; box-shadow: 0 0 15px rgba(255, 64, 129, 0.2) !important; }
 .blue-border { border: 1px solid #1e90ff; box-shadow: 0 0 15px rgba(30, 144, 255, 0.2) !important; }
 .yellow-border { border: 1px solid #ffeb3b; box-shadow: 0 0 15px rgba(255, 235, 59, 0.2) !important; }
+
+/* ==========================================================================
+   AJUSTES DEFINITIVOS PARA LAS IMÁGENES Y DISEÑO RESPONSIVO
+   ========================================================================== */
+
+/* 1. Buscamos la etiqueta img que muestra la obra de arte y la controlamos */
+#artwork, .game-screen img, .question-area img, .artwork-container img {
+    width: 100% !important;
+    max-height: 280px !important;    /* Evita que la imagen crezca de más verticalmente */
+    object-fit: contain !important;   /* OBLIGA a la obra a verse completa sin recortes */
+    object-position: center !important; /* La centra perfectamente horizontal y vertical */
+    margin: 0 auto 15px auto !important;
+    display: block !important;
+    border-radius: 12px !important;  /* Le da una curvatura estética en los bordes */
+}
+
+/* 2. Ajuste responsivo para celulares pequeños */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px !important;
+    }
+    
+    .screen {
+        width: 100% !important;
+        padding: 5px !important;
+    }
+
+    /* Reduce un poquito la altura máxima en pantallas muy enanas para que quepan los botones */
+    #artwork, .game-screen img, .question-area img, .artwork-container img {
+        max-height: 220px !important;
+    }
+}
+
+/* Ajuste milimétrico para la obra de WipyArt en monitores y teléfonos */
+#art-image {
+    width: 100% !important;
+    max-height: 260px !important;    /* Controla la altura perfecta para que quepan los botones abajo */
+    object-fit: contain !important;   /* OBLIGA a la pintura a mostrarse completa sin cortes feos */
+    object-position: center !important; /* Centra la obra de arte en su tarjeta */
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+.art-card {
+    background: transparent !important; /* Quita fondos negros extras estirados */
+    box-shadow: none !important;
+}
